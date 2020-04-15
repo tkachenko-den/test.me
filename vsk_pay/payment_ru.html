@@ -1,0 +1,451 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"> 
+<!--[if IE 8]>
+<html lang="ru" class="ie8 _adaptive"></html>
+<![endif]-->
+<!--[if IE 9]>
+<html lang="ru" class="ie9 _adaptive"></html>
+<![endif]-->
+<!--if gt IE 9-->
+<html lang="ru" class="_adaptive">
+<head>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="yandex-verification" content="5180c1bd892d12ce" />
+    
+<script type="text/javascript" src="../../js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="../../js/jquery.timers-1.2.js"></script>
+<script type="text/javascript" src="../../js/jquery.url.js"></script>
+<script type="text/javascript" src="../../js/jquery.payment.js"></script>
+<script type="text/javascript" src="../../js/localization.js"></script>
+    <link href="css/main.css" type="text/css"  rel="stylesheet" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <title>Страховой дом ВСК</title>
+</head>
+<body onclick="return {'page': {'project': 'travel'}}" class="page _adaptive js-widget">
+<div class="wrapper">
+    <div class="page__wrapper">
+        <div class="page__header">
+            <div class="page__container">
+                
+                
+                <a href="/travel/" class="logo-link">
+                    <img src="./images/logo.png" width="223" height="59" class="logo">
+                </a>
+                
+                <span class="top-sign v-hidden d-none">Страховой дом ВСК<br>Номер полиса: <span id="orderNumber"></span>                </span>
+            </div>
+        </div>
+
+<div class="slide _no-padding">
+  <div class="draw-up _lite _adaptive">
+    <div class="page__container">
+      <div data-step='1' class="draw-up__item">Уточнение данных</div>
+      <div data-step='2' class="draw-up__item">Оформление полиса</div>
+      <div data-step='3' class="draw-up__item _active">Оплата и получение</div>
+    </div>
+  </div>
+</div>
+<main class="page__main _payment">
+  <div class="page__container _payment">
+    <div class="d-none">
+      <div id="feeAmount"></div>
+      <div id="description"></div>
+    </div>
+    <div id="errorBlock"></div>
+    <div id="amount" class="d-none"></div>
+    <div id="infoBlock"></div>
+    <div id="indicator" class="d-none"><img src="images/ajax-loader.gif" alt="indicator"/></div>
+    <form onclick="return {'paymentForm': {}}" name="PaymentForm" action="#" method="POST" autocomplete="off" id="formPayment" class="payment-form _adaptive js-widget">
+      <input type="hidden" id="expiry"/>
+      <input type="hidden" id="mdOrder"/>
+      <input type="hidden" value="/../" id="location"/>
+      <input type="hidden" value="ru" id="language"/>
+      <h1 class="visible-lg">Оплата страхового полиса</h1>
+      <div class="payment-form__title"></div>
+      <div class="payment-form__check"></div>
+      <div class="payment-form__timer time-wrap _adaptive">До окончания сессии осталось&nbsp;<span class="time"><span id="numberCountdown"></span></span></div>
+      <div onclick="return {'card': {}}" class="card _adaptive js-widget">
+        <input type="text" autocomplete="off" maxlength="19" name="$PAN" id="iPAN" class="card__number input input-mask d-none"/>
+        <div class="card__row row">
+          <div class="card__col _card-images"><img src="images/cards.png" class="card__img"/></div>
+        </div>
+        <div class="card__row row">
+          <div class="card__col _card-number col-md-6 col-lg-12">
+            <label for="iPANBox" class="card__label">Номер карты</label>
+            <input type="tel" data-placeholder=" " placeholder="0000 0000 0000 0000 000" data-mask="9999 9999 9999 9999[ 999]" autocomplete="off" id="iPANBox" class="card__number input input-mask"/>
+          </div>
+          <div class="card__col _card-date col-md-6 col-lg-12">
+            <label for="month" class="card__label">Действует до</label>
+            <div class="custom-select _light card__month">
+              <select data-placeholder="Месяц" aria-hidden="true" name="MM" id="month" class="select custom-select__input _mobile">
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+              </select>
+            </div>
+            <div class="custom-select _light card__year">
+              <select data-placeholder="Год" aria-hidden="true" name="YYYY" id="year" class="select custom-select__input _mobile">
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+                <option value="2027">2027</option>
+                <option value="2028">2028</option>
+                <option value="2029">2029</option>
+                <option value="2030">2030</option>
+                <option value="2031">2031</option>
+                <option value="2032">2032</option>
+                <option value="2033">2033</option>
+                <option value="2034">2034</option>
+                <option value="2035">2035</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="card__row row">
+          <div class="card__col _card-name col-md-6 col-lg-12">
+            <label for="iTEXT" class="card__label">Владелец</label>
+            <input type="text" name="TEXT" placeholder="IVANOV IVAN" maxlength="90" data-inputmask-regex="[\w\s]+" autocomplete="off" id="iTEXT" class="card__name input input-mask"/>
+          </div>
+          <div class="card__col _card-cvc col-md-6 col-lg-12">
+            <label for="iCVC" class="card__label">Код безопасности</label>
+            <input type="password" placeholder="CVC" data-mask="999" maxlength="3" autocomplete="off" name="$CVC" id="iCVC" class="card__cvc input input-mask"/><span class="tooltip _single card__tooltip"><span class="tooltip__body">Последние 3 цифры кода на полосе для подписи.</span></span><span class="card__help hidden-lg">Последние 3 цифры <br> на оборотной стороне карты</span>
+          </div>
+        </div>
+      </div>
+      <div class="payment-form__action row">
+        <div class="col-lg-12 col-md-12 col-sm-12 no-padding">
+          <button type="button" id="buttonPayment" class="btn _dark-red payment-form__submit">Оплатить полис</button><img src="images/verified--colored@2x.png" width="216" height="66" class="payment-form__verified"/>
+        </div>
+      </div>
+      <div class="payment-form__footer row">
+        <div class="payment-form__desc">После оплаты страховой полис будет доступен для печати и сохранения в виде файла</div>
+        <div class="payment-form__desc">Также страховой полис будет отправлен Вам на e-mail:<span id="ownerEmail" class="payment-form__email"></span></div>
+      </div>
+    </form>
+    <form method="POST" action="" id="acs" class="d-none">
+      <input type="hidden" name="MD" id="MD"/>
+      <input type="hidden" name="PaReq" id="PaReq"/>
+      <input type="hidden" name="TermUrl" id="TermUrl"/>
+    </form>
+  </div>
+</main>
+<script type="text/html" id="travelCheckTmpl">
+  <div class="tariff-card tariff-card_payment tariff-card_short">
+    <div class="tariff-card__subtitle">Пакет</div>
+    <h2 class="tariff-card__title"><%=policy.package%></h2>
+    <div class="tariff-card__group">
+      <div class="tariff-card__point"><%=policy.locations%></div>
+      <div class="tariff-card__point"><%=policy.insureds%></div>
+    </div>
+    <div class="tariff-card__group visible-lg">
+      <div class="tariff-card__point"><%=policy.dates%></div>
+    </div><% if (policy.risks && policy.risks.length) { %>
+    <div class="tariff-card__group">
+      <div class="tariff-card__label">Дополнительно</div>
+      <ul class="ul">
+        <% for (var i = 0, size = policy.risks.length; i < size; i++) { %>
+            <li><%=policy.risks[i]%></li>
+        <% } %>
+      </ul>
+    </div><% } %>
+    <div class="tariff-card__group _mobile hidden-lg">
+      <div class="tariff-card__point"><%=policy.dates%></div>
+    </div>
+    <div class="tariff-card__total"><span class="tariff-card__total-sum"><%=policy.total%></span><span class="rouble"></span>
+    </div>
+    <div class="tariff-card__group _actions _active"><span data-collapse-label="Кратко" class="tariff-card__link-more">Подробно</span></div>
+  </div>
+</script>
+<script type="text/html" id="osagoCheckTmpl">
+  <div onclick="return {&quot;osagoCard&quot;: {}}" class="osago-card _side _active osago-card_payment osago-card_short js-widget">
+    <div class="osago-card__body">
+      <h2 class="osago-card__title"><%=policy.vehicle%></h2><% if (policy.extra && policy.extra.length) { %>
+      <h3 class="osago-card__subtitle"><%=policy.extra%></h3><% } %>
+      <div class="osago-card__group _owner _active">
+        <div class="osago-card__label">Страхователь и собственник</div>
+        <div class="osago-card__value"><%=policy.owner%></div>
+      </div><% if (policy.drivers && policy.drivers.length) { %>
+      <div class="osago-card__group _drivers _active">
+        <div class="osago-card__label">Водители</div><% for (var i = 0, size = policy.drivers.length; i < size; i++) { %>
+        <div class="osago-card__value"><%=policy.drivers[i]%></div>
+        <% } %>
+      </div><% } %>    
+      <% if (policy.programs && policy.programs.length) { %>
+      <div class="osago-card__group _extra _active">
+        <div class="osago-card__label">Дополнительно</div><% for (var i = 0, size = policy.programs.length; i < size; i++) { %>
+        <div class="osago-card__value"><%=policy.programs[i]%></div>
+        <% } %>
+      </div><% } %>
+      <% if (policy.dates) { %>
+      <div class="osago-card__group _dates _active">
+        <div class="osago-card__value"><span><%=policy.dates%></span></div>
+      </div><% } %>
+      <div class="osago-card__group _footer _active">
+        <div class="osago-card__total"><span class="osago-card__total-sum"><%=policy.total%></span><span class="rouble _light"></span>
+        </div>
+      </div>
+      <div class="osago-card__group _actions _active"><span data-collapse-label="Кратко" class="osago-card__link-more">Подробно</span></div>
+    </div>
+  </div>
+</script>
+<script type="text/html" id="iflCheckTmpl">
+  <div onclick="return {&quot;formSum&quot;: {}}" class="form-sum form-sum_block-like form-sum_full form-sum_ready form-sum_payment form-sum_short js-widget">
+    <div class="form-sum__title">Программа</div>
+    <h2 class="form-sum__title-value"><%=policy.package%></h2>
+    <div class="form-sum__group form-sum__group_prices"><% for (var i = 0, size = policy.insured_sums.length; i < size; i++) { %>
+      <div class="form-sum__group-item">
+        <div class="form-sum__group-title form-sum__group-title_inline"><%=policy.insured_sums[i].name%></div>
+        <div class="form-sum__group-value form-sum__group-value_price"><span><%=policy.insured_sums[i].value%></span> <span class="rouble _light"></span>
+        </div>
+      </div><% } %>
+    </div>
+    <div class="form-sum__group">
+      <div class="form-sum__group-value">Страховка действует<br/><span><%=policy.validity%></span></div>
+    </div>
+    <div class="form-sum__group form-sum__group_total">
+      <div class="form-sum__group-item">
+        <div class="form-sum__group-value form-sum__group-value_total"><span><%=policy.total%></span><span class="rouble _light"></span>
+        </div>
+      </div>
+    </div>
+    <div class="form-sum__group form-sum__group_actions"><span data-collapse-label="Кратко" class="form-sum__link-more">Подробно</span></div>
+  </div>
+</script>
+<script type="text/html" id="mbgCheckTmpl">
+  <div onclick="return {&quot;formSum&quot;: {}}" class="form-sum form-sum_block-like form-sum_full form-sum_ready form-sum_payment form-sum_short js-widget">
+    <div class="form-sum__title">Программа</div>
+    <h2 class="form-sum__title-value"><%=policy.package%></h2>
+    <div class="form-sum__group form-sum__group_prices"><% for (var i = 0, size = policy.insured_sums.length; i < size; i++) { %>
+      <div class="form-sum__group-item">
+        <div class="form-sum__group-title form-sum__group-title_inline"><%=policy.insured_sums[i].name%></div>
+        <div class="form-sum__group-value form-sum__group-value_price"><span><%=policy.insured_sums[i].value%></span> <span class="rouble _light"></span>
+        </div>
+      </div><% } %>
+    </div>
+    <div class="form-sum__group">
+      <div class="form-sum__group-value">Страховка действует<br/><span><%=policy.validity%></span></div>
+    </div>
+    <div class="form-sum__group form-sum__group_total">
+      <div class="form-sum__group-item">
+        <div class="form-sum__group-value form-sum__group-value_total"><span><%=policy.total%></span><span class="rouble _light"></span>
+        </div>
+      </div>
+    </div>
+    <div class="form-sum__group form-sum__group_actions"><span data-collapse-label="Кратко" class="form-sum__link-more">Подробно</span></div>
+  </div>
+</script>
+<script type="text/html" id="mbgCheckTmpl">
+  <div onclick="return {&quot;formSum&quot;: {}}" class="form-sum form-sum_block-like form-sum_full form-sum_ready form-sum_payment form-sum_short js-widget">
+    <div class="form-sum__title">Программа</div>
+    <h2 class="form-sum__title-value"><%=policy.package%></h2>
+    <div class="form-sum__group form-sum__group_prices"><% for (var i = 0, size = policy.insured_sums.length; i < size; i++) { %>
+      <div class="form-sum__group-item">
+        <div class="form-sum__group-title form-sum__group-title_inline"><%=policy.insured_sums[i].name%></div>
+        <div class="form-sum__group-value form-sum__group-value_price"><span><%=policy.insured_sums[i].value%></span> <span class="rouble _light"></span>
+        </div>
+      </div><% } %>
+    </div>
+    <div class="form-sum__group">
+      <div class="form-sum__group-value">Страховка действует<br/><span><%=policy.validity%></span></div>
+    </div>
+    <div class="form-sum__group form-sum__group_total">
+      <div class="form-sum__group-item">
+        <div class="form-sum__group-value form-sum__group-value_total"><span><%=policy.total%></span><span class="rouble _light"></span>
+        </div>
+      </div>
+    </div>
+    <div class="form-sum__group form-sum__group_actions"><span data-collapse-label="Кратко" class="form-sum__link-more">Подробно</span></div>
+  </div>
+</script>
+<script type="text/html" id="nsCheckTmpl">
+  <div onclick="return {&quot;formSum&quot;: {}}" class="form-sum form-sum_block-like form-sum_full form-sum_ready form-sum_payment form-sum_short js-widget">
+    <div class="form-sum__title">Программа</div>
+    <h2 class="form-sum__title-value"><%=policy.package%></h2>
+    <div class="form-sum__group"><% for (var i = 0, size = policy.insured_sums.length; i < size; i++) { %>
+      <div class="form-sum__group-item">
+        <div class="form-sum__group-title"><%=policy.insured_sums[i].name%></div>
+        <div class="form-sum__group-value"><span><%=policy.insured_sums[i].value%></span> <span class="rouble _light"></span>
+        </div>
+      </div><% } %>
+    </div>
+    <div class="form-sum__group">
+      <div class="form-sum__group-value">Страховка действует<br/><span><%=policy.validity%></span></div>
+    </div>
+    <div class="form-sum__group form-sum__group_total">
+      <div class="form-sum__group-item">
+        <div class="form-sum__group-value"><span><%=policy.total%></span><span class="rouble _light"></span>
+        </div>
+      </div>
+    </div>
+    <div class="form-sum__group form-sum__group_actions"><span data-collapse-label="Кратко" class="form-sum__link-more">Подробно</span></div>
+  </div>
+</script>
+<script type="text/html" id="totalTmpl"><span class="whole"><%=whole%><% if (penny) { %><span class="penny">, <%=penny%></span><% } %></span></script>
+<script>
+  $(document).payment({
+      language: "ru",
+      messageAjaxError: "Сервис временно недоступен. Попробуйте позднее.",
+      messageTimeRemaining: "#MIN#:#SEC#",
+      visualValidationEnabled: true,
+      getFeeEnabled: true,
+      bindingCheckboxEnabled:false,
+      agreementCheckboxEnabled:false,
+      orderId:"orderNumber",
+      onReady: function() {
+          $(function() {
+              setTimeout(function() {
+                  jQuery_1_11.publish('vsk.load', [JSON.parse($('#description').text())]);
+              }, 0);
+          });
+      }
+  });
+</script>    </div>
+    <div class="page__footer _osago">
+                    <div class="page__footer-top">
+    <div class="page__container">
+        <div class="rewards align-center">
+            <div onclick="return {'mobileSlider': {'width': 768}}" class="mobile-slider js-widget">
+                <div class="reward _inline _adaptive align-center">
+                    <div class="reward__image tooltip">
+                        <img src="./images/rewards/8.png" width="67" height="76" alt="Благодарность Президента России">
+                        <div class="tooltip__body align-left hidden-xs">
+                            <h4 class="tooltip__title">Благодарность Президента России</h4>
+                            <div class="tooltip__date"></div>
+    						<br/>
+                            <p>Высокий уровень работы компании дважды отмечен благодарностью Президента Российской Федерации за большой вклад в развитие страхового дела.</p>
+                        </div>
+                        <div class="reward__body visible-xs-block">
+                          <h4 class="tooltip__title align-center">Благодарность Президента России</h4>
+                          <p>Высокий уровень работы компании дважды отмечен благодарностью Президента Российской Федерации за большой вклад в развитие страхового дела.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reward _inline _adaptive align-center">
+                    <div class="reward__image tooltip">
+                        <img src="./images/rewards/9.png" width="106" height="63" alt="ВСК – безусловный лидер рынка">
+                        <div class="tooltip__body align-left hidden-xs">
+                            <h4 class="tooltip__title">ВСК – безусловный лидер рынка</h4>
+                            <div class="tooltip__date"></div>
+    						<br/>
+                            <p>По итогам 3 квартала 2015 года Страховой дом ВСК является лидером рынка страхования путешествующих с долей 12,7%.</p>
+                        </div>
+                        <div class="reward__body visible-xs-block">
+                          <h4 class="tooltip__title align-center">ВСК – безусловный лидер рынка</h4>
+                          <p>По итогам 2014 года Страховой дом ВСК является лидером рынка страхования путешествующих с долей 12,3%.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reward _inline _adaptive align-center">
+                    <div class="reward__image tooltip"><img src="./images/rewards/10.png" width="68" height="68" alt="Компания года">
+                        <div class="tooltip__body align-left hidden-xs">
+                            <h4 class="tooltip__title">ВСК признана «Компанией года»</h4>
+                            <div class="tooltip__date"></div>
+    						<br/>
+                            <p>В 2016 году ВСК в очередной раз заслужила почетное звание «Компания года» в номинации «Страховая компания» и стала одним из лучших предприятий на российском рынке.</p>
+                        </div>
+                        <div class="reward__body visible-xs-block">
+                          <h4 class="tooltip__title align-center">ВСК признана «Компанией года»</h4>
+                          <p>
+                              В 2016 году ВСК в очередной раз заслужила почетное звание «Компания года» в номинации «Страховая компания» и стала одним из лучших предприятий на российском рынке.
+                          </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reward _inline _adaptive align-center">
+                    <div class="reward__image tooltip"><img src="./images/rewards/11.png" width="132" height="57" alt="Золотой Сайт">
+                        <div class="tooltip__body align-left hidden-xs">
+                            <h4 class="tooltip__title">ВСК победила в конкурсе «Золотой Сайт»</h4>
+                            <div class="tooltip__date"></div>
+    						<br/>
+                            <p>В рамках Недели Российского Интернета сайт Страхового дома ВСК одержал победу в номинациях: «Страхование и экспертиза», «Торговая марка компании».</p>
+                        </div>
+                        <div class="reward__body visible-xs-block">
+                          <h4 class="tooltip__title align-center">ВСК победила в конкурсе «Золотой Сайт»</h4>
+                          <p>В рамках Недели Российского Интернета сайт Страхового дома ВСК одержал победу в номинациях: «Страхование и экспертиза», «Торговая марка компании».</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reward _inline _adaptive align-center">
+                    <div class="reward__image tooltip">
+                        <img src="./images/rewards/12.png" width="226" height="32" alt="ВСК – исключительная надежность">
+                        <div class="tooltip__body align-left hidden-xs">
+                            <h4 class="tooltip__title">ВСК – исключительная надежность</h4>
+                            <div class="tooltip__date"></div>
+    						<br/>
+                            <p>В рейтинге агентства «Эксперт РА» ВСК занимает позицию исключительно высокого уровня надежности благодаря своевременному выполнению финансовых обязательств.</p>
+                        </div>
+                        <div class="reward__body visible-xs-block">
+                          <h4 class="tooltip__title align-center">ВСК – исключительная надежность</h4>
+                          <p>В рейтинге агентства «Эксперт РА» ВСК занимает позицию исключительно высокого уровня надежности благодаря своевременному выполнению финансовых обязательств.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        
+        <div class="page__footer-bottom">
+            <div class="page__container">
+                <div class="page__footer-copyright">
+                    <div class="row _wider">
+                        <div class="col-4">
+                            <div class="copyright _osago _adaptive">Страховое акционерное общество ВСК
+                                <div class="copyright__details">Лицензия Банка России от 11.09.2015: СЛ №0621, СИ №0621, ОС №0621, ОС №0621-04, ОС №0621-05, ПС №0621.<br>Вся информация, представленная на сайте, носит информационный характер<br>и ни при каких условиях не является публичной офертой.<br><a target="_blank" href=" http://www.vsk.ru/about/confidentiality_policy/">Политика в отношении обработки персональных данных</a></div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="footer-contacts _osago _adaptive">
+                                <div class="footer-contacts__address">
+                                    По техническим вопросам пишите на&nbsp;
+                                    <a href="mailto:webpay@vsk.ru" class="footer-contacts__mail">webpay@vsk.ru</a>
+                                </div>
+                                <div class="footer-contacts__address">
+                                    Центральный офис: Москва,<br>ул. Островная, 4<br>
+                                    <a href="http://www.vsk.ru/offices/city/450/" class="footer-contacts__map" target="_blank">Посмотреть на карте</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <a href="http://www.adv.ru/" class="footer-contacts__vda _adaptive" target="_blank">Сделано в ADV</a>
+                            <p class="copyright__details">Для корректной работы сайта интернет магазина рекомендуется использовать операционную систему Windows ХР и выше, и один из перечисленных браузеров Internet Explorer 11 и выше или Google Chrome версии 57 и выше. Возможна нестабильная работа сайта при использовании иной операционной системы и/или иных браузеров.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-none">
+    <div class="browser-checker main-popup">
+        <h2>Пожалуйста, обновите свой браузер</h2><span>К сожалению, ваш браузер устарел.<br>Пожалуйста, выберите и установите современный браузер.</span>
+        <div class="browser-list">
+            <div class="browser-list__item"><a href="https://www.google.ru/chrome/browser/desktop/" class="browser-list__link"><img src="./images/browser-checker/chr.png">Google Chrome</a></div>
+            <div class="browser-list__item"><a href="https://www.mozilla.org/ru/firefox/new/" class="browser-list__link"><img src="./images/browser-checker/ff.png">Mozilla Firefox</a></div>
+            <div class="browser-list__item"><a href="http://www.opera.com/ru" class="browser-list__link"><img src="./images/browser-checker/op.png">Opera browser</a></div>
+        </div>
+    </div>
+</div>
+
+</div>
+</body>
+</html>
